@@ -4,6 +4,9 @@ using Mafia.Interfaces;
 
 namespace Mafia.Helpers
 {
+    /// <summary>
+    /// Abstracts IO operations to the console.
+    /// </summary>
     public static class Prompt
     {
         public static void welcome()

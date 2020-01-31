@@ -3,8 +3,13 @@ using Mafia.Enumerations;
 
 namespace Mafia.Entities.Characters
 {
+        
         public class Doctor : Player
         {
-            public Doctor(string name) : base(name, ROLE.Doctor) { }
+
+        /// <summary>
+        /// Initializes the ROLE from the Player base class.
+        /// </summary>
+        public Doctor(string name) : base(name, ROLE.Doctor) { }
         }
 }

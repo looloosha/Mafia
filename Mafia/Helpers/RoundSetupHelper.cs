@@ -6,14 +6,29 @@ using Mafia.Enumerations;
 
 namespace Mafia.Helpers
 {
+    /// <summary>
+    /// A supporting class to the Round class. Provids functionality for logistics of initial game setup
+    /// </summary>
     public class RoundSetupHelper
     {
+        /// <summary>
+        /// A list of the remaining available ROLEs. ROLEs are limited in a game.
+        /// </summary>
         private List<ROLE> availableRoles = new List<ROLE>();
 
+        /// <summary>
+        /// Keeps tack of the quantity of ROLEs as they are randomly given out to players.
+        /// </summary>
         private int currCivilian, currMafia, currDoctor, currSherrif = 0;
 
+        /// <summary>
+        /// The Round instance that this instance is supporting.
+        /// </summary>
         public Round round;
 
+        /// <summary>
+        /// Populates availableRoles with all ROLEs in the ROLEs enum.
+        /// </summary>
         public RoundSetupHelper(Round round)
         {
             availableRoles.Add(ROLE.Civilian);
@@ -24,6 +39,9 @@ namespace Mafia.Helpers
             this.round = round;
         }
 
+        /// <summary>
+        /// Returns a list of Player objects after asking the user for their name and assignming them a ROLE.
+        /// </summary>
         public List<Player> getPlayerNamesAndAssignRandomRoles(int totalPlayers)
         {
             List<Player> registeredPlayers = new List<Player>();
@@ -66,6 +84,9 @@ namespace Mafia.Helpers
 
         }
 
+        /// <summary>
+        /// Uses a random generator to randomly distribute ROLEs still avaialbe to assign to players.
+        /// </summary>
         public ROLE getRandomAvailableRole(Random roleRandomGenerator)
         {
             int r = roleRandomGenerator.Next(availableRoles.Count);
